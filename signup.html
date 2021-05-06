@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="reset.css" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet" />
+        <title>Sign Up</title>
+    </head>
+    <body>
+        <!-- NavBar -->
+        <nav id="navbar">
+            <div class="navbar_logo"><img src="image/logo/logo_transparent2.png" class="navbar_logo_img" /></div>
+            <ul class="navbar_menu">
+                <li class="navbar_menu_item"><a>회원가입</a></li>
+                <li class="navbar_menu_item"><a>로그인</a></li>
+            </ul>
+        </nav>
+
+        <div class="container" class="signup_cont">
+            <!--Welcome-->
+            <div class="welcome">
+                <h2><b>IT SHARE</b>에 오신 것을 환영합니다.</h2>
+            </div>
+            <form class="signup" action="signup.php" method="POST" target="_self">
+                <div class="signup_items">
+                    <label>이름</label>
+                    <input type="text" name="name" />
+                </div>
+                <div class="signup_items">
+                    <label>아이디</label>
+                    <input type="text" name="name" />
+                </div>
+                <div class="signup_items">
+                    <label>비밀번호</label>
+                    <input type="text" name="name" />
+                </div>
+                <div class="signup_items">
+                    <label>이메일</label>
+                    <input type="email" name="name" />
+                </div>
+                <div>
+                    <input type="submit" value="회원가입" style="border: none; background-color: #5dacbd; color: white; margin-top: 30px" />
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

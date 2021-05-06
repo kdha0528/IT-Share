@@ -1,0 +1,142 @@
+@import 'reset.css';
+body {
+    background-color: white;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    zoom: 1;
+    clear: both;
+}
+
+#navbar {
+    width: 100%;
+    padding: 16px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    z-index: 99;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+    border-bottom: 2px solid rgba(93, 172, 189, 0.7);
+}
+.navbar_logo {
+    position: relative;
+    margin-left: 1px;
+    align-items: center;
+}
+.navbar_logo_img {
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+}
+.navbar_menu {
+    display: flex;
+}
+.navbar_menu_item {
+    background-color: #5dacbd;
+    width: 90px;
+    padding: 10px 0px;
+    margin-right: 20px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+}
+.container {
+    max-width: 840px;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+input {
+    width: 600px;
+    height: 50px;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: none;
+    appearance: none;
+}
+
+label {
+    display: block;
+}
+#search {
+    position: relative;
+}
+.search {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 180px;
+}
+.search .search_bar {
+    width: 600px;
+    height: 50px;
+    border: 2px solid #5dacbd;
+}
+
+.search .search_icon {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left: 10px;
+}
+
+#postingBoard {
+    margin-top: 100px;
+}
+
+.postingBoard_items {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+}
+
+.postingBoard_item {
+    position: relative;
+    cursor: pointer;
+}
+
+.postingBoard_item P {
+    color: #5dacbd;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    letter-spacing: 2px;
+}
+
+.welcome {
+    position: relative;
+    margin-top: 180px;
+    text-align: left;
+    color: black;
+    align-self: center;
+}
+
+.signup {
+    position: relative;
+    margin-top: 50px;
+    text-align: left;
+    align-self: center;
+}
+
+.signup .signup_items {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.signup .signup_items input {
+    border-style: solid;
+    border-color: black;
+}
+
+.signup .signup_items label {
+    line-height: 30px;
+}
