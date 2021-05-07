@@ -114,29 +114,95 @@ label {
 
 .welcome {
     position: relative;
-    margin-top: 180px;
-    text-align: left;
+    margin-top: 80px;
     color: black;
-    align-self: center;
+    align-self: flex-start;
 }
 
-.signup {
+.welcome span {
+    letter-spacing: 2px;
+    font-size: 22px;
+}
+
+.login {
+    margin-top: 180px;
+    align-self: flex-start;
+}
+
+.container_contents {
+    width: 600px;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sign {
     position: relative;
     margin-top: 50px;
     text-align: left;
     align-self: center;
 }
 
-.signup .signup_items {
+.sign .sign_items {
     font-weight: 700;
     margin-bottom: 20px;
 }
 
-.signup .signup_items input {
+.sign .sign_items input {
     border-style: solid;
     border-color: black;
 }
 
-.signup .signup_items label {
+.sign .sign_items label {
     line-height: 30px;
+}
+
+.bar {
+    display: inline-block;
+    width: 1px;
+    height: 18px;
+    text-indent: -999em;
+    background: #e4e4e5;
+    vertical-align: bottom;
+}
+
+.find_info {
+    color: #a5a5a7;
+    margin-top: 30px;
+}
+
+.mypage {
+    margin-top: 80px;
+}
+.mypage_items {
+    align-self: flex-start;
+    font-size: large;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-top: 1px solid rgb(230, 230, 230);
+}
+
+.mypage_name {
+    font-size: large;
+    font-weight: 700;
+    align-self: flex-start;
+}
+
+.mypage_email {
+    align-self: flex-start;
+    margin-top: 10px;
+    color: #a5a5a7;
+    margin-bottom: 60px;
+}
+
+.mypage_item {
+    margin-top: 60px;
+    align-self: flex-start;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
