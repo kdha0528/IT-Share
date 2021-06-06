@@ -39,8 +39,7 @@ body {
 }
 .navbar_menu_item {
     background-color: #5dacbd;
-    width: 90px;
-    padding: 10px 0px;
+    padding: 10px 10px;
     margin-right: 20px;
     cursor: pointer;
     box-sizing: border-box;
@@ -177,6 +176,7 @@ label {
 .mypage {
     margin-top: 80px;
 }
+
 .mypage_items {
     align-self: flex-start;
     font-size: large;
@@ -193,17 +193,23 @@ label {
     align-self: flex-start;
 }
 
-.mypage_email {
-    align-self: flex-start;
-    margin-top: 10px;
-    color: #a5a5a7;
-    margin-bottom: 60px;
-}
-
 .mypage_item {
     margin-top: 60px;
     align-self: flex-start;
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+.mypage_item .right {
+    color: black;
+}
+.mypage_item .left {
+    color: black;
+}
+
+.my_follow_follower {
+    margin-top: 10px;
+    margin-bottom: 60px;
+    text-align: left;
+    font-size: small;
 }
