@@ -112,6 +112,73 @@ label {
     letter-spacing: 2px;
 }
 
+#postboard {
+    width: 100%;
+    margin-top: 50px;
+    border-radius: 10px;
+    border: 2px solid #5dacbd;
+}
+
+.postboard_content {
+    border-top: 2px solid #5dacbd;
+}
+
+.postboard_header {
+    height: 30px;
+    text-align: center;
+    background-color: #5dacbd;
+    color: white;
+    border: 2px solid #5dacbd !important;
+}
+
+.postboard_header_1 {
+    width: 10%;
+    border-right: 2px solid white;
+}
+
+.postboard_header_2 {
+    width: 50%;
+    border-right: 2px solid white;
+}
+
+.postboard_header_3 {
+    width: 16%;
+    border-right: 2px solid white;
+}
+
+.postboard_header_4 {
+    width: 16%;
+    border-right: 2px solid white;
+}
+
+.postboard_header_5 {
+    width: 8%;
+}
+
+.postboard_content_1 {
+    width: 10%;
+    border-right: 2px solid #5dacbd;
+}
+
+.postboard_content_2 {
+    width: 50%;
+    border-right: 2px solid #5dacbd;
+}
+
+.postboard_content_3 {
+    width: 16%;
+    border-right: 2px solid #5dacbd;
+}
+
+.postboard_content_4 {
+    width: 16%;
+    border-right: 2px solid #5dacbd;
+}
+
+.postboard_content_5 {
+    width: 8%;
+}
+
 .welcome {
     position: relative;
     margin-top: 80px;
@@ -184,10 +251,21 @@ footer {
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
-    height: 50px;
     color: white;
     width: 100vw;
-    padding-right: 30px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+.contact {
+    padding-top: 10px;
+    color: white;
+    line-height: 30px;
+}
+
+.contact img {
+    width: 15px;
+    display: inline;
 }
 
 .mypage {

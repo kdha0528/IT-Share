@@ -79,13 +79,42 @@
                 </ul>
             </section>
             <section id = "posts">
-                
+                <form action="showremove.php" method="get"> 
+                    <table id="postboard">
+                        <tr class="postboard_header">
+                            <th class="postboard_header_1">게시판</th><th class="postboard_header_2">제목</th><th class="postboard_header_3">글쓴이</th><th class="postboard_header_4">작성일</th><th class="postboard_header_5">조회수</th>
+                        </tr>
+                        <tr class="postboard_content">
+                            <td class="postboard_content_1">1</td>
+                            <td class="postboard_content_2">2</td>
+                            <td class="postboard_content_3">3</td>
+                            <td class="postboard_content_4">4</td>
+                            <td class="postboard_content_5">5</td>
+                        </tr>
+                    </table>
+                </form>
             </section>
         </div>
         <!--footer -->
         <footer id = "footer">
-                <div class="footer__line"></div>
-                <p class="footer__description"><i class="far fa-copyright"> 2021 Dale Kim - All rights reserved. </i></p>
+            <ul class="contact">
+                    <li><i class="fas fa-mobile-alt" style="width: 26px"></i> Phone : 010 7544 4357</li>
+                    <li>
+                        <img src="image/kakaotalk.png" alt="kakao talk" />
+                        Kakao : kdha4585
+                    </li>
+                    <li class="contact__mail">
+                        <a href="mailto:kdha4585@gmail.com" target="_balnk">
+                            <i class="far fa-envelope"> Email : kdha485@gmail.com</i>
+                        </a>
+                    </li>
+                    <li class="contact__git">
+                        <a href="https://github.com/kdha0528" target="_balnk">
+                            <i class="fab fa-github" alt="GitHub"> https://github.com/kdha0528</i>
+                        </a>
+                    </li>
+            </ul>
+            <p class="footer__description"><i class="far fa-copyright"> 2021 Dale Kim - All rights reserved. </i></p>
         </footer>
     </body>
 </html>
