@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="style.css" type="text/css" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
         <title>IT Share</title>
     </head>
     <body>
@@ -77,6 +78,14 @@
                     </li>
                 </ul>
             </section>
+            <section id = "posts">
+                
+            </section>
         </div>
+        <!--footer -->
+        <footer id = "footer">
+                <div class="footer__line"></div>
+                <p class="footer__description"><i class="far fa-copyright"> 2021 Dale Kim - All rights reserved. </i></p>
+        </footer>
     </body>
 </html>
