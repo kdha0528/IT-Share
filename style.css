@@ -1,5 +1,9 @@
 @import 'reset.css';
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: white;
     text-align: center;
@@ -7,6 +11,12 @@ body {
     margin: 0 auto;
     zoom: 1;
     clear: both;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+a {
+    color: black;
 }
 
 #navbar {
@@ -42,19 +52,22 @@ body {
     padding: 10px 10px;
     margin-right: 20px;
     cursor: pointer;
-    box-sizing: border-box;
     border-radius: 5px;
     color: white;
     text-align: center;
 }
+
 .container {
     max-width: 840px;
     padding: 0;
-    margin: 0 auto;
+    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
 }
+
 input {
     width: 600px;
     height: 50px;
@@ -112,15 +125,16 @@ label {
     letter-spacing: 2px;
 }
 
-#postboard {
-    width: 100%;
-    margin-top: 50px;
-    border-radius: 10px;
+#posts {
+    padding-top: 50px;
+}
+.posts {
     border: 2px solid #5dacbd;
+    border-radius: 10px;
 }
 
-.postboard_content {
-    border-top: 2px solid #5dacbd;
+#postboard {
+    width: 100%;
 }
 
 .postboard_header {
@@ -128,11 +142,16 @@ label {
     text-align: center;
     background-color: #5dacbd;
     color: white;
-    border: 2px solid #5dacbd !important;
+}
+
+.postboard_content {
+    height: 30px;
+    border-top: 2px solid #5dacbd;
 }
 
 .postboard_header_1 {
-    width: 10%;
+    border-top-left-radius: 5px;
+    width: 12%;
     border-right: 2px solid white;
 }
 
@@ -147,36 +166,75 @@ label {
 }
 
 .postboard_header_4 {
-    width: 16%;
+    width: 14%;
     border-right: 2px solid white;
 }
 
 .postboard_header_5 {
+    border-top-right-radius: 5px;
     width: 8%;
 }
 
 .postboard_content_1 {
-    width: 10%;
+    width: 12%;
     border-right: 2px solid #5dacbd;
+    color: black;
 }
 
 .postboard_content_2 {
     width: 50%;
     border-right: 2px solid #5dacbd;
+    color: black;
 }
 
 .postboard_content_3 {
     width: 16%;
     border-right: 2px solid #5dacbd;
+    color: black;
 }
 
 .postboard_content_4 {
-    width: 16%;
+    width: 14%;
     border-right: 2px solid #5dacbd;
+    color: black;
 }
 
 .postboard_content_5 {
     width: 8%;
+    color: black;
+}
+
+footer {
+    box-sizing: border-box;
+    position: relative;
+    background-color: #5dacbd;
+    margin-top: 100px;
+    bottom: 0;
+}
+
+.footer__description {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    color: white;
+    width: 100vw;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+#footer a {
+    color: white;
+}
+
+.contact {
+    padding-top: 10px;
+    color: white;
+    line-height: 30px;
+}
+
+.contact img {
+    width: 15px;
+    display: inline;
 }
 
 .welcome {
@@ -240,34 +298,6 @@ label {
     margin-top: 30px;
 }
 
-footer {
-    box-sizing: border-box;
-    position: absolute;
-    background-color: #5dacbd;
-    bottom: 0;
-}
-
-.footer__description {
-    display: flex;
-    align-items: center;
-    flex-direction: row-reverse;
-    color: white;
-    width: 100vw;
-    padding-right: 20px;
-    padding-bottom: 10px;
-}
-
-.contact {
-    padding-top: 10px;
-    color: white;
-    line-height: 30px;
-}
-
-.contact img {
-    width: 15px;
-    display: inline;
-}
-
 .mypage {
     margin-top: 80px;
 }
@@ -307,4 +337,24 @@ footer {
     margin-bottom: 60px;
     text-align: left;
     font-size: small;
+}
+
+.submit {
+    cursor: pointer;
+}
+
+.board_top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 180px;
+}
+
+.board_title {
+    margin: auto;
+}
+
+.board_writing {
+    margin: auto;
+    color: white;
 }

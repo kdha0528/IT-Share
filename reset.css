@@ -80,7 +80,7 @@ a {
     background-color: transparent;
     cursor: pointer;
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 /**
@@ -194,6 +194,7 @@ button,
 select {
     /* 1 */
     text-transform: none;
+    cursor: pointer;
 }
 
 /**
@@ -205,6 +206,7 @@ button,
 [type='reset'],
 [type='submit'] {
     -webkit-appearance: button;
+    cursor: pointer;
 }
 
 /**
@@ -216,7 +218,6 @@ button::-moz-focus-inner,
 [type='reset']::-moz-focus-inner,
 [type='submit']::-moz-focus-inner {
     border-style: none;
-    padding: 0;
 }
 
 /**
