@@ -4,8 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="reset.css" type="text/css" />
-        <link rel="stylesheet" href="style.css" type="text/css" />
+        <link rel="stylesheet" href="style.css?after" type="text/css" media="screen" charset="utf-8"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet" />
@@ -46,21 +45,22 @@
         <div class="container">
             <div class="board_top">
                 <h1 class="login" class="board_title"><?= $board ?> 게시판</h1>
-                <a href="writing.php" class="board_writing">글쓰기</a>
+                <a href="writing.php?board=<?=$board?>" class="board_writing">글쓰기</a>
             </div>
-            <div class="find_info">
-                <a href="findid.php" style="color: #a5a5a7">아이디 찾기</a>
-                <span class="bar" aria-hidden="true">|</span>
-                <a href="findpw.php" style="color: #a5a5a7">비밀번호 찾기</a>
-                <span class="bar" aria-hidden="true">|</span>
-                <a href="signup.php" style="color: #a5a5a7">회원가입</a>
-            </div>
-            <section id="search" class="section">
+            <div class="board_second">
+                <div class="find_info">
+                    <a href="findid.php" style="color: #a5a5a7">최신순</a>
+                    <span class="bar" aria-hidden="true">|</span>
+                    <a href="findpw.php" style="color: #a5a5a7">조회순</a>
+                    <span class="bar" aria-hidden="true">|</span>
+                    <a href="signup.php" style="color: #a5a5a7">추천순</a>
+                </div>
                 <form class="search" action="search.php" method="POST" target="_self">
                     <input type="text" name="search" value="" placeholder=" 검색어를 입력해주세요." class="search_bar" />
                     <input type="image" src="image/iconfinder_search-find-magnify-glass_2203508.png" class="search_icon" />
                 </form>
-            </section>
+            </div>
+            
             <section id = "posts">
                 <form action="showremove.php" method="get" class="posts"> 
                     <table id="postboard">
@@ -68,9 +68,9 @@
                             <th class="postboard_header_1">게시판</th><th class="postboard_header_2">제목</th><th class="postboard_header_3">글쓴이</th><th class="postboard_header_4">작성일</th><th class="postboard_header_5">조회수</th>
                         </tr>
                         <tr class="postboard_content">
-                            <td class="postboard_content_1"><a href="" class="">전체게시판</a></td>
-                            <td class="postboard_content_2"><a href="" class="">아니 이게 말이되냐???</a></td>
-                            <td class="postboard_content_3"><a href="" class="">kdha0528</a></td>
+                            <td class="postboard_content_1"><a href="board.php" class="">전체게시판</a></td>
+                            <td class="postboard_content_2"><a href="post.php" class="">아니 이게 말이되냐???</a></td>
+                            <td class="postboard_content_3"><a href="userpage.php" class="">kdha0528</a></td>
                             <td class="postboard_content_4">2020-04-08</td>
                             <td class="postboard_content_5">333</td>
                         </tr>

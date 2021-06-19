@@ -4,8 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="reset.css" type="text/css" />
-        <link rel="stylesheet" href="style.css" type="text/css" />
+        <link rel="stylesheet" href="style.css?after" type="text/css" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
@@ -17,7 +16,7 @@
         include_once('dbconn.php');
         $count = 0;
         if(isset($_SESSION['name'])){
-            $uid = $_SESSION['uid'];
+            $id = $_SESSION['id'];
             $sql = "select count(*) rowcnt from user where id = '$id'";
             $result = $conn->query($sql);
             if($result->num_rows > 0){
@@ -85,9 +84,9 @@
                             <th class="postboard_header_1">게시판</th><th class="postboard_header_2">제목</th><th class="postboard_header_3">글쓴이</th><th class="postboard_header_4">작성일</th><th class="postboard_header_5">조회수</th>
                         </tr>
                         <tr class="postboard_content">
-                            <td class="postboard_content_1"><a href="" class="">전체게시판</a></td>
-                            <td class="postboard_content_2"><a href="" class="">아니 이게 말이되냐???</a></td>
-                            <td class="postboard_content_3"><a href="" class="">kdha0528</a></td>
+                            <td class="postboard_content_1"><a href="board.php" class="">전체게시판</a></td>
+                            <td class="postboard_content_2"><a href="post.php" class="">아니 이게 말이되냐???</a></td>
+                            <td class="postboard_content_3"><a href="userpage.php" class="">kdha0528</a></td>
                             <td class="postboard_content_4">2020-04-08</td>
                             <td class="postboard_content_5">333</td>
                         </tr>
