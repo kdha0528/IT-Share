@@ -12,23 +12,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet" />
     <script src="main.js" defer></script>
-    <title>Writing</title>
+    <title>Modify Post</title>
 </head>
 <body>
     <?php
     session_start();
     include_once('dbconn.php');
-    $count = 0;
-    if(isset($_SESSION['name'])){
-        $id = $_SESSION['id'];
-        $sql = "select count(*) rowcnt from user where id = '$id'";
-        $result = $conn->query($sql);
-        if($result->num_rows > 0){
-            $row = $result->fetch_assoc();
-            $count = $row['rowcnt'];
-        }
-    }
-    $board = $_GET['board'];
+    $b_idx = $_GET['b_idx'];
+    $sql = "select * from board where b_idx = '$b_idx'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    if(!isset($result)) die($conn->error);
     ?>
     <!-- NavBar -->
     <nav id="navbar">
@@ -56,23 +50,25 @@
             else{
         ?>
         <h1 class="login">글쓰기</h1>
-        <form class="writingbox" action="writingproc.php" method="POST" target="_self">
-            <div class="writer"><?= $id ?>님</div>
+        <form class="writingbox" action="modifypostproc.php" method="POST" target="_self">
+            <div class="writer"><?=$_SESSION['id']?>님</div>
             <div class="writingbox_board">
-                <select name="board" class="select_board" >
-                    <option value="자유게시판" selected>자유게시판</option>
+                <select name="board" class="select_board" value ="<?=$row['b_board']?>" >
+                    <option value="자유게시판">자유게시판</option>
                     <option value="질문게시판">질문게시판</option>
                     <option value="공유게시판">공유게시판</option>
 	        	</select>
             </div>
             <div class="writingbox_title">
                 <label>제목</label>
-                <input type="text" name="title" class="writingbox_title_input" required />
+                <input type="text" name="title" class="writingbox_title_input" value="<?=$row['b_title']?>"required />
             </div>
             <div class="writingbox_contents">
                 <textarea cols="50" rows="10" name="contents" class="writingbox_contents_input" required>
+                    <?=$row['b_contents']?>
                 </textarea>
             </div>
+            <input type="hidden" name="b_idx" value="<?=$row['b_idx']?>">
             <div class="writingbox_btn">
                 <input type="reset" value="취소" style="border: none; background-color: #8EC0E4; color: white; margin-top: 30px"  class="submit"/>
                 <input type="submit" value="등록" style="border: none; background-color: orange; color: white; margin-top: 30px"  class="submit"/>

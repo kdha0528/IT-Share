@@ -13,11 +13,10 @@ if($result->num_rows > 0){
     $name = $row['name'];
     $_SESSION ['id'] = $row['id'];    //세션 키 생성해서 로그인한 사용자의 아이디와 이름을 저장
     $_SESSION ['name'] = $row['name'];
-    echo  "$name 님 환영합니다.<br>";
-    echo "<a href='index.php'>홈으로 돌아가기</a>";
+    echo "<script>location.href='index.php'</script>";
 }else{
-    echo "아이디 또는 비밀번호가 맞지 않습니다.";
-    echo "<a href='signin.php'>로그인화면으로 돌아가기</a>";
+    echo "<script type='text/javascript'>alert('아이디 또는 비밀번호가 맞지 않습니다.$conn->error');</script>";
+    echo "<script>location.href='signin.php'</script>";
 }
 
 ?>

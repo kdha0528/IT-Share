@@ -8,22 +8,18 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+        <script src="main.js" defer></script>
         <title>IT Share</title>
     </head>
     <body>
         <?php
         session_start();
         include_once('dbconn.php');
-        $count = 0;
         if(isset($_SESSION['name'])){
             $id = $_SESSION['id'];
-            $sql = "select count(*) rowcnt from user where id = '$id'";
-            $result = $conn->query($sql);
-            if($result->num_rows > 0){
-                $row = $result->fetch_assoc();
-                $count = $row['rowcnt'];
-            }
         }
+        $sql = "SELECT * from board";
+        $result = $conn->query($sql);
         ?>
         <!-- NavBar -->
         <nav id="navbar">
@@ -35,7 +31,7 @@
                 <li><a class="navbar_menu_item" href="signup.php">회원가입</a></li>
                 <li><a class="navbar_menu_item" href='signin.php'>로그인</a></li>
                 <?php }else{ ?>
-                <li><a class="navbar_menu_item" href='mypage.php'>마이페이지</a></li>
+                <li><a class="navbar_menu_item" href='userpage.php?id=<?=$_SESSION['id']?>'>마이페이지</a></li>
                 <li><a class="navbar_menu_item" href='signout.php'>로그아웃</a></li>
                 <?php } ?>
             </ul>
@@ -44,7 +40,7 @@
         <div class="container">
             <section id="search" class="section">
                 <form class="search" action="search.php" method="POST" target="_self">
-                    <input type="text" name="search" value="" placeholder=" 검색어를 입력해주세요." class="search_bar" />
+                    <input type="text" name="search" placeholder=" 검색어를 입력해주세요." class="search_bar" />
                     <input type="image" src="image/iconfinder_search-find-magnify-glass_2203508.png" class="search_icon" />
                 </form>
             </section>
@@ -52,26 +48,26 @@
             <section id="postingBoard">
                 <ul class="postingBoard_items">
                     <li class="postingBoard_item">
-                        <a href="board.php?board=전체">
-                            <img src="image/mycollection/png/all.png" />
+                        <a href="board.php?board=전체게시판">
+                            <i class="fas fa-border-all" class="favicon"></i>
                             <p>ALL</p>
                         </a>
                     </li>
                     <li class="postingBoard_item">
-                        <a href="board.php?board=자유">
-                            <img src="image/mycollection/png/free.png" />
+                        <a href="board.php?board=자유게시판">
+                            <i class="far fa-comment-dots" class="favicon"></i>
                             <p>FREE</p>
                         </a>
                     </li>
                     <li class="postingBoard_item">
-                        <a href="board.php?board=질문">
-                            <img src="image/mycollection/png/qna.png" />
+                        <a href="board.php?board=질문게시판">
+                            <i class="fas fa-question" class="favicon"></i>
                             <p>Q&A</p>
                         </a>
                     </li>
                     <li class="postingBoard_item">
-                        <a href="board.php?board=s공유">
-                            <img src="image/mycollection/png/share.png" />
+                        <a href="board.php?board=공유게시판">
+                            <i class="fas fa-share-alt" class="favicon"></i>
                             <p>SHARE</p>
                         </a>
                     </li>
@@ -83,13 +79,15 @@
                         <tr class="postboard_header">
                             <th class="postboard_header_1">게시판</th><th class="postboard_header_2">제목</th><th class="postboard_header_3">글쓴이</th><th class="postboard_header_4">작성일</th><th class="postboard_header_5">조회수</th>
                         </tr>
+                        <?php while($row = $result->fetch_assoc()){ ?>
                         <tr class="postboard_content">
-                            <td class="postboard_content_1"><a href="board.php" class="">전체게시판</a></td>
-                            <td class="postboard_content_2"><a href="post.php" class="">아니 이게 말이되냐???</a></td>
-                            <td class="postboard_content_3"><a href="userpage.php" class="">kdha0528</a></td>
-                            <td class="postboard_content_4">2020-04-08</td>
-                            <td class="postboard_content_5">333</td>
+                            <td class="postboard_content_1"><a href="board.php?board=<?=$row['b_board']?>" class=""><?=$row['b_board']?></a></td>
+                            <td class="postboard_content_2"><a href="post.php?b_idx=<?=$row['b_idx']?>" class=""><?=$row['b_title'] ?>(<?=$row['commentnum']?>)</a></td>
+                            <td class="postboard_content_3"><a href="userpage.php?id=<?=$row['id']?>" class=""><?=$row['id']?></a></td>
+                            <td class="postboard_content_4"><?=$row['b_date']?></td>
+                            <td class="postboard_content_5"><?=$row['viewnum']?></td>
                         </tr>
+                        <?php } ?>
                     </table>
                 </form>
             </section>

@@ -16,7 +16,7 @@ if($result->num_rows > 0) {
     echo  "$name 회원님의 아이디는 $id 입니다.<br>";
     echo "<a href='signin.php'>로그인 화면으로 돌아가기</a>";
 }else{
-    echo "존재하지 않는 전화번호 입니다.";
-    echo "<a href='findid.php'>뒤로가기</a>";
+    echo "<script type='text/javascript'>alert('존재하지 않는 전화번호 입니다.$conn->error');</script>";
+    echo "<script>location.href='findid.php'</script>";
 }
 ?>

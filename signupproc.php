@@ -16,10 +16,11 @@ $comment = 0;
 $sql="insert into user values('$id', '$pw', '$name', '$tel', '$date', $follow, $follower, $post, $comment)";
 
 if($conn->query($sql)){
-    echo "회원가입이 성공적으로 처리되었습니다.<br>";
-    echo "<a href='index.php'>홈으로 돌아가기</a>";
+    echo "<script type='text/javascript'>alert('회원가입에 성공하였습니다.');</script>";
+    echo "<script>location.href='index.php'</script>";
 }else{
-    echo "회원가입 중에 오류가 발생하였습니다.".$conn->error;
+    echo "<script type='text/javascript'>alert('회원가입 도중에 오류가 발생하였습니다.$conn->error');</script>";
+    echo "<script>location.href='signup.php'</script>";
 }
 
 ?>

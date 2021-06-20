@@ -7,10 +7,10 @@ $name = $_SESSION['name'];
 $sql = "delete from user where id = '$id'";
 
 if($conn->query($sql)){
-    echo "$name 회원의 회원정보를 삭제하였습니다.<br>";
-    echo "<a href='index.php'>홈으로 돌아가기</a>";
+    echo "<script>location.href='board.php?board=$b_board'</script>";
     session_destroy();
 }else{
-    echo "회원탈퇴 중에 오류가 발생하였습니다.". $conn->error;
+    echo "<script type='text/javascript'>alert('회원탈퇴 도중에 오류가 발생하였습니다.$conn->error');</script>";
+    echo "<script>location.href='userpage.php?id='$id''</script>";
 }
 ?>

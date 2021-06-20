@@ -9,22 +9,16 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet" />
-        <title>My Posts</title>
+        <script src="main.js" defer></script>
+        <title>User Comments</title>
     </head>
     <body>
-    <?php
+        <?php
         session_start();
         include_once('dbconn.php');
-        $count = 0;
-        if(isset($_SESSION['name'])){
-            $id = $_SESSION['id'];
-            $sql = "select count(*) rowcnt from user where id = '$id'";
-            $result = $conn->query($sql);
-            if($result->num_rows > 0){
-                $row = $result->fetch_assoc();
-                $count = $row['rowcnt'];
-            }
-        }
+        $id = $_GET['id'];
+        $sql = "SELECT * from comment where id = '$id'";
+        $result = $conn->query($sql);
         ?>
         <!-- NavBar -->
         <nav id="navbar">
@@ -36,15 +30,40 @@
                 <li><a class="navbar_menu_item" href="signup.php">회원가입</a></li>
                 <li><a class="navbar_menu_item" href='signin.php'>로그인</a></li>
                 <?php }else{ ?>
-                <li><a class="navbar_menu_item" href='mypage.php'>마이페이지</a></li>
+                    <li><a class="navbar_menu_item" href='userpage.php?id=<?=$_SESSION['id']?>'>마이페이지</a></li>
                 <li><a class="navbar_menu_item" href='signout.php'>로그아웃</a></li>
                 <?php } ?>
             </ul>
         </nav>
-        <!--SigninPage-->
+        <!--BoardPage-->
         <div class="container">
-            <h1 class="login">내 게시글</h1>
-            <div class="container_contents"></div>
+            <div class="board_top">
+                <h1 class="login" class="board_title"><?=$id?>님이 쓴 댓글</h1>
+            </div>
+            
+            <section id = "posts">
+            <div class="commentbox">
+                <table id="commenttable">
+                    <tr class="commentbox_header">
+                        <th class="commentbox_header_1">작성자</th><th class="commentbox_header_2">댓글내용</th><th class="commentbox_header_3">작성일</th>
+                    </tr> 
+                    <?php while($row = $result->fetch_assoc()){ ?>
+                    <tr class="commentbox_content">
+                        <th class="commentbox_content_1"><a href="userpage.php?id=<?=$id?>" class=""><?=$row['id']?></a></th>
+                        <th class="commentbox_content_2"><?=$row['c_contents']?>
+                        <?php 
+                        if(isset($_SESSION['id'])){
+                            if($row['id'] == $_SESSION['id']){ ?>
+                                <a class="deletecomment_btn" href="deletecomment.php?c_idx=<?=$row['c_idx']?>&b_idx=<?=$row2['b_idx']?>">삭제</a>
+                            <?php } ?>
+                        <?php } ?>
+                        </th>
+                        <th class="commentbox_content_3"><?=$row['c_date']?></th>
+                    </tr>
+                    <?php } ?>
+                </table>
+            </div>
+            </section>
         </div>
         <!--footer -->
         <footer id="footer">

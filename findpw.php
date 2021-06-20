@@ -9,7 +9,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet" />
-        <title>Find ID</title>
+        <script src="main.js" defer></script>
+        <title>Find PW</title>
     </head>
     <body>
     <?php
@@ -36,7 +37,7 @@
                 <li><a class="navbar_menu_item" href="signup.php">회원가입</a></li>
                 <li><a class="navbar_menu_item" href='signin.php'>로그인</a></li>
                 <?php }else{ ?>
-                <li><a class="navbar_menu_item" href='mypage.php'>마이페이지</a></li>
+                    <li><a class="navbar_menu_item" href='userpage.php?id=<?=$_SESSION['id']?>'>마이페이지</a></li>
                 <li><a class="navbar_menu_item" href='signout.php'>로그아웃</a></li>
                 <?php } ?>
             </ul>

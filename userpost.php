@@ -6,26 +6,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="reset.css" type="text/css" />
         <link rel="stylesheet" href="style.css" type="text/css" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet" />
         <script src="main.js" defer></script>
-        <title>Sign In</title>
+        <title>User Posts</title>
     </head>
     <body>
         <?php
         session_start();
         include_once('dbconn.php');
-        $count = 0;
-        if(isset($_SESSION['name'])){
-            $id = $_SESSION['id'];
-            $sql = "select count(*) rowcnt from user where id = '$id'";
-            $result = $conn->query($sql);
-            if($result->num_rows > 0){
-                $row = $result->fetch_assoc();
-                $count = $row['rowcnt'];
-            }
-        }
+        $id = $_GET['id'];
+        $sql = "SELECT * from board where id = '$id'";
+        $result = $conn->query($sql);
         ?>
         <!-- NavBar -->
         <nav id="navbar">
@@ -42,36 +35,33 @@
                 <?php } ?>
             </ul>
         </nav>
-        <!--SigninPage-->
+        <!--BoardPage-->
         <div class="container">
-            <h1 class="login">로그인</h1>
-            <div class="container_contents">
-                <h3 class="welcome"><span class="itshare">IT SHARE</span>에 오신 것을 환영합니다.</h3>
-
-                <form class="sign" action="signinproc.php" method="POST" target="_self">
-                    <div class="sign_items">
-                        <label>아이디</label>
-                        <input type="text" name="id" />
-                    </div>
-                    <div class="sign_items">
-                        <label>비밀번호</label>
-                        <input type="password" name="pw" />
-                    </div>
-                    <div>
-                        <input type="submit" value="로그인" style="border: none; background-color: orange; color: white; margin-top: 30px"  class="submit"/>
-                    </div>
-                </form>
-                <div class="find_info">
-                    <a href="findid.php" style="color: #a5a5a7">아이디 찾기</a>
-                    <span class="bar" aria-hidden="true">|</span>
-                    <a href="findpw.php" style="color: #a5a5a7">비밀번호 찾기</a>
-                    <span class="bar" aria-hidden="true">|</span>
-                    <a href="signup.php" style="color: #a5a5a7">회원가입</a>
-                </div>
+            <div class="board_top">
+                <h1 class="login" class="board_title"><?=$id?>님이 쓴 글</h1>
             </div>
+            
+            <section id = "posts">
+                <form action="showremove.php" method="get" class="posts"> 
+                    <table id="postboard">
+                        <tr class="postboard_header">
+                            <th class="postboard_header_1">게시판</th><th class="postboard_header_2">제목</th><th class="postboard_header_3">글쓴이</th><th class="postboard_header_4">작성일</th><th class="postboard_header_5">조회수</th>
+                        </tr>
+                        <?php while($row = $result->fetch_assoc()){ ?>
+                        <tr class="postboard_content">
+                        <td class="postboard_content_1"><a href="board.php?board=<?=$row['b_board']?>" class=""><?=$row['b_board']?></a></td>
+                            <td class="postboard_content_2"><a href="post.php?b_idx=<?=$row['b_idx']?>" class=""><?=$row['b_title'] ?>(<?=$row['commentnum']?>)</a></td>
+                            <td class="postboard_content_3"><a href="userpage.php?id=<?=$id?>" class=""><?=$row['id']?></a></td>
+                            <td class="postboard_content_4"><?=$row['b_date']?></td>
+                            <td class="postboard_content_5"><?=$row['viewnum']?></td>
+                          </tr>
+                        <?php } ?>
+                    </table>
+                </form>
+            </section>
         </div>
         <!--footer -->
-        <footer id = "footer">
+        <footer id="footer">
             <ul class="contact">
                 <li><i class="fas fa-mobile-alt" style="width: 26px"></i> Phone : 010 7544 4357</li>
                 <li>
